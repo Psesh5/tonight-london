@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>London Tonight — Wednesday, September 23</title>
+<style>
+:root{--ink:#14201A;--gold:#E39A2D;--paper:#F7F2E9;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;-webkit-font-smoothing:antialiased;}
+.hero{background:var(--ink);color:var(--paper);text-align:center;padding:44px 24px 36px;}
+.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;}
+.hero h1{font-family:Georgia, 'Times New Roman', serif;font-size:44px;margin:12px 0 8px;font-weight:normal;}
+.hero p{opacity:.72;font-size:14px;margin:0;}
+.toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:20px 20px 4px;}
+.btn{display:inline-block;border:none;cursor:pointer;padding:11px 24px;border-radius:999px;font-size:14px;font-family:-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;text-decoration:none;}
+.btn-dark{background:var(--ink);color:var(--paper);}
+.btn-gold{background:var(--gold);color:var(--ink);font-weight:bold;}
+.picks{max-width:640px;margin:14px auto 0;padding:14px 20px;text-align:center;font-size:14px;}
+.picks strong{font-family:Georgia, 'Times New Roman', serif;font-size:18px;}
+.wrap{max-width:680px;margin:0 auto;padding:8px 20px 60px;}
+.cat h2{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;border-bottom:1px solid #d8d2c2;padding:26px 0 10px;margin:0 0 4px;}
+.cat.free h2{color:var(--ink);}
+.cat.free{background:#fffdf6;border:1px solid var(--gold);border-radius:14px;padding:0 18px 8px;margin-top:18px;}
+.event{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid #e7e1d2;scroll-margin-top:20px;}
+.toggle{background:none;border:none;cursor:pointer;padding:2px 0;align-self:flex-start;}
+.box{display:inline-block;width:22px;height:22px;border:2px solid var(--gold);border-radius:7px;background:#fff;position:relative;transition:background .15s;}
+.toggle[aria-pressed="true"] .box{background:var(--gold);}
+.toggle[aria-pressed="true"] .box::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(42deg);}
+.event-body{flex:1;}
+.event-body h3{font-family:Georgia, 'Times New Roman', serif;font-size:20px;margin:0 0 4px;}
+.event-body h3 a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;}
+.meta{font-size:13px;color:#6b6b6b;margin-bottom:8px;}
+.event-body p{font-size:14.5px;line-height:1.55;color:#333;margin:0 0 10px;}
+.tickets{display:inline-block;background:var(--ink);color:var(--paper);padding:8px 20px;border-radius:999px;text-decoration:none;font-size:13px;}
+footer{background:var(--ink);color:var(--paper);text-align:center;padding:34px 24px;font-size:13px;}
+footer .serif{font-family:Georgia, 'Times New Roman', serif;font-size:17px;margin-bottom:8px;}
+footer p{opacity:.62;line-height:1.6;margin:0;}
+</style></head>
+<body>
+<header class="hero">
+<div class="eyebrow">Wednesday, September 23 · London</div>
+<h1>London Tonight</h1>
+<p>Hand-picked things to do, all happening today. Tap the boxes to track your picks.</p>
+</header>
+<div class="toolbar">
+<button class="btn btn-dark" id="shareBtn">Share →</button>
+<a class="btn btn-gold" href="https://psesh5.github.io/tonight-london/london-2026-09-23.ics" download>📥 Download .ics</a>
+</div>
+<div class="picks" id="picksBar"><strong>My picks: <span id="pickCount">0</span></strong><br>
+<span style="font-size:13px;color:#6b6b6b;">Tap the boxes above, then send your picks — it shapes tomorrow's recommendations.</span><br><br>
+<button class="btn btn-dark" id="sendBtn">Send my picks →</button>
+</div>
+<main class="wrap">
+
+<section class="cat free">
+<h2>✨ Free tonight</h2>
+
+<article class="event" id="event-6" data-name="Amar Kanwar">
+<button class="toggle" data-idx="6" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.serpentinegalleries.org/about/press/amar-kanwar/">Amar Kanwar</a></h3>
+<div class="meta">Time TBA · Serpentine North, Kensington · Free</div>
+<p>Opening day of Amar Kanwar&#x27;s meditative moving-image exhibition at Serpentine North, including Such a Morning, The Peacock&#x27;s Graveyard and the world premiere of the seven-screen installation The Charcoal Man.</p>
+<a class="tickets" href="https://www.serpentinegalleries.org/about/press/amar-kanwar/">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-7" data-name="Creative Encounters: 2B or not 2B&#x27;s Life Drawing">
+<button class="toggle" data-idx="7" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.southbankcentre.co.uk/whats-on/creative-encounters-2b-or-not-2bs-life-drawing/">Creative Encounters: 2B or not 2B&#x27;s Life Drawing</a></h3>
+<div class="meta">18:00 · Southbank Centre, South Bank · Free</div>
+<p>Drop-in life drawing session run by the 2B or not 2B Collective, a POC-run drawing group spotlighting underrepresented tutors and models. All abilities welcome; charcoal and paper provided. No ticket required.</p>
+<a class="tickets" href="https://www.southbankcentre.co.uk/whats-on/creative-encounters-2b-or-not-2bs-life-drawing/">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-9" data-name="IFA London Regional Event">
+<button class="toggle" data-idx="9" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.ifa.org.uk/cpd/in-person/regional-events/london/london-23-september">IFA London Regional Event</a></h3>
+<div class="meta">17:30 · Northeastern University London, Devon House, St Katharine Docks · Free</div>
+<p>Professional networking evening with talks on the UK economy from a Bank of England deputy agent and financial-planning strategy from Mattioli Woods. Registration has closed; a waiting list is available.</p>
+<a class="tickets" href="https://www.ifa.org.uk/cpd/in-person/regional-events/london/london-23-september">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-10" data-name="Free Cheese at The Prince of Wales">
+<button class="toggle" data-idx="10" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.gold-flamingo.com/2026/09/15/whats-on-london-21-27-september-2026/">Free Cheese at The Prince of Wales</a></h3>
+<div class="meta">18:00 · The Prince of Wales, Highgate · Free</div>
+<p>Free cheese plates at the Highgate pub every Wednesday evening, 6-7pm, while stocks last.</p>
+<a class="tickets" href="https://www.gold-flamingo.com/2026/09/15/whats-on-london-21-27-september-2026/">Tickets &amp; info →</a>
+</div>
+</article>
+</section>
+<section class="cat">
+<h2>Music</h2>
+
+<article class="event" id="event-0" data-name="Richard Spaven">
+<button class="toggle" data-idx="0" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.eventim.co.uk/artist/richard-spaven/richard-spaven-4131990/">Richard Spaven</a></h3>
+<div class="meta">19:00 · The Jazz Cafe, Camden</div>
+<p>Contemporary jazz drummer Richard Spaven plays the Jazz Cafe, blending jazz, electronic and experimental grooves.</p>
+<a class="tickets" href="https://www.eventim.co.uk/artist/richard-spaven/richard-spaven-4131990/">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-1" data-name="Ward Thomas: Celebrating 10 Years of Cartwheels">
+<button class="toggle" data-idx="1" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://lwtheatres.co.uk/whats-on/ward-thomas/">Ward Thomas: Celebrating 10 Years of Cartwheels</a></h3>
+<div class="meta">19:30 · The London Palladium, Soho</div>
+<p>British country-pop duo Ward Thomas celebrate 10 years of their number-one album Cartwheels, performing it in full with a live band plus support from The Wandering Hearts.</p>
+<a class="tickets" href="https://lwtheatres.co.uk/whats-on/ward-thomas/">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-2" data-name="Royal Philharmonic Orchestra at 80">
+<button class="toggle" data-idx="2" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.rpo.co.uk/tickets-memberships/event/2026/royal-philharmonic-orchestra-at-80">Royal Philharmonic Orchestra at 80</a></h3>
+<div class="meta">19:30 · Royal Albert Hall, South Kensington · From £24</div>
+<p>The Royal Philharmonic Orchestra marks 80 years with Wallen&#x27;s FLARE, Beethoven&#x27;s Triple Concerto and Strauss&#x27;s Ein Heldenleben.</p>
+<a class="tickets" href="https://www.rpo.co.uk/tickets-memberships/event/2026/royal-philharmonic-orchestra-at-80">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-3" data-name="System Olympia (Live)">
+<button class="toggle" data-idx="3" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.jambase.com/show/system-olympia-shacklewell-arms-20260923">System Olympia (Live)</a></h3>
+<div class="meta">19:30 · The Shacklewell Arms, Dalston</div>
+<p>Live set from London-based electronic and disco artist System Olympia at the Shacklewell Arms.</p>
+<a class="tickets" href="https://www.jambase.com/show/system-olympia-shacklewell-arms-20260923">Tickets &amp; info →</a>
+</div>
+</article>
+</section>
+<section class="cat">
+<h2>Comedy</h2>
+
+<article class="event" id="event-4" data-name="Catherine Bohart: Borrowing Trouble">
+<button class="toggle" data-idx="4" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://sohotheatre.seetickets.com/artist/catherine-bohart/1790934">Catherine Bohart: Borrowing Trouble</a></h3>
+<div class="meta">19:15 · Soho Theatre, Soho · £15–£24</div>
+<p>Award-nominated comic Catherine Bohart brings a fresh hour of sharp stand-up about borrowing trouble - worrying about things that may never happen.</p>
+<a class="tickets" href="https://sohotheatre.seetickets.com/artist/catherine-bohart/1790934">Tickets &amp; info →</a>
+</div>
+</article>
+<article class="event" id="event-5" data-name="Knock2Bag Comedy Night with Josie Long">
+<button class="toggle" data-idx="5" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.chortle.co.uk/venues/14/england_london_east/5894/moth_club">Knock2Bag Comedy Night with Josie Long</a></h3>
+<div class="meta">19:00 · MOTH Club, Hackney · £17.10</div>
+<p>Josie Long headlines Knock2Bag&#x27;s comedy night with Ed Aczel, Harriet Dyer, Joe Jacobs, Nicola Mantalios, Ray Badran and Sam Eley.</p>
+<a class="tickets" href="https://www.chortle.co.uk/venues/14/england_london_east/5894/moth_club">Tickets &amp; info →</a>
+</div>
+</article>
+</section>
+<section class="cat">
+<h2>Tech</h2>
+
+<article class="event" id="event-8" data-name="Using AI agents to grow your business">
+<button class="toggle" data-idx="8" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
+<div class="event-body">
+<h3><a href="https://www.eventbrite.co.uk/e/using-ai-agents-to-grow-your-business-tickets-1998491553033">Using AI agents to grow your business</a></h3>
+<div class="meta">12:00 · Online</div>
+<p>A 30-minute online lunchtime session from Enterprise Nation on using AI agents to grow your business.</p>
+<a class="tickets" href="https://www.eventbrite.co.uk/e/using-ai-agents-to-grow-your-business-tickets-1998491553033">Tickets &amp; info →</a>
+</div>
+</article>
+</section>
+</main>
+<footer>
+<div class="serif">Hand-picked for you by Tonight.</div>
+<p>Your picks are tracked when you send them —<br>tomorrow's digest learns what you love.</p>
+</footer>
+<script>
+const CITY = "london";
+const DATE = "2026-09-23";
+const NAMES = ["Richard Spaven", "Ward Thomas: Celebrating 10 Years of Cartwheels", "Royal Philharmonic Orchestra at 80", "System Olympia (Live)", "Catherine Bohart: Borrowing Trouble", "Knock2Bag Comedy Night with Josie Long", "Amar Kanwar", "Creative Encounters: 2B or not 2B's Life Drawing", "Using AI agents to grow your business", "IFA London Regional Event", "Free Cheese at The Prince of Wales"];
+const CATS = ["Music", "Music", "Music", "Music", "Comedy", "Comedy", "Arts & Play", "Arts & Play", "Tech", "Meetups & Mixers", "Food & Drink"];
+const FREE = [false, false, false, false, false, false, true, true, false, true, true];
+const KEY = "tonight-picks-" + CITY + "-" + DATE;
+let picks = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+function render() {
+  document.querySelectorAll(".toggle").forEach(btn => {
+    const on = picks.has(btn.dataset.idx);
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  document.getElementById("pickCount").textContent = picks.size;
+  localStorage.setItem(KEY, JSON.stringify([...picks]));
+  // report taps to the backend when available (real tracking)
+  if (window.__tonight_api) {
+    fetch(window.__tonight_api + "/tap", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({city: CITY, date: DATE,
+        picks: [...picks].map(i => ({name: NAMES[+i], category: CATS[+i], free: FREE[+i]}))})
+    }).catch(() => {});
+  }
+}
+document.querySelectorAll(".toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const id = btn.dataset.idx;
+    picks.has(id) ? picks.delete(id) : picks.add(id);
+    render();
+  });
+});
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const data = {title: document.title, text: "Today's picks", url: location.href};
+  if (navigator.share) { try { await navigator.share(data); } catch(e) {} }
+  else { await navigator.clipboard.writeText(location.href); alert("Link copied — paste it anywhere to share."); }
+});
+document.getElementById("sendBtn").addEventListener("click", () => {
+  if (!picks.size) { alert("Tap a few boxes first, then send your picks."); return; }
+  const list = [...picks].sort().map(i => "• " + NAMES[+i]).join("\n");
+  const subject = encodeURIComponent("Re: London Tonight — my picks");
+  const body = encodeURIComponent("My picks for " + DATE + " (" + CITY + "):\n\n" + list + "\n\n— sent from my London Tonight page");
+  location.href = "mailto:pseshadri91@gmail.com?subject=" + subject + "&body=" + body;
+});
+render();
+</script>
+</body></html>
