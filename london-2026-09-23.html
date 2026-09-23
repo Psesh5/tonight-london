@@ -31,6 +31,19 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system
 .meta{font-size:13px;color:#6b6b6b;margin-bottom:8px;}
 .event-body p{font-size:14.5px;line-height:1.55;color:#333;margin:0 0 10px;}
 .tickets{display:inline-block;background:var(--ink);color:var(--paper);padding:8px 20px;border-radius:999px;text-decoration:none;font-size:13px;}
+.cal-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px;}
+.cal-link{display:inline-block;background:#fff;border:1px solid var(--gold);color:var(--ink);padding:6px 14px;border-radius:999px;text-decoration:none;font-size:12.5px;cursor:pointer;font-family:-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;}
+.cal-link:hover{background:var(--gold);}
+.leave-by{font-size:12.5px;color:#6b6b6b;font-style:italic;}
+.btn-active{background:var(--gold)!important;color:var(--ink)!important;font-weight:bold;}
+.badge{display:inline-block;font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin:0 0 8px;}
+.badge.now{background:#1a7f37;color:#fff;}
+.badge.free{background:var(--gold);color:var(--ink);}
+#tonightWrap{display:none;}
+.tonight-head h2{font-family:Georgia, 'Times New Roman', serif;font-size:26px;margin:18px 0 2px;font-weight:normal;}
+.tonight-head p{font-size:13px;color:#6b6b6b;margin:0 0 6px;}
+.tba-div{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6b6b6b;border-top:1px solid #d8d2c2;margin-top:14px;padding-top:14px;}
+#tonightEmpty{text-align:center;color:#6b6b6b;padding:30px 10px;font-size:14px;}
 footer{background:var(--ink);color:var(--paper);text-align:center;padding:34px 24px;font-size:13px;}
 footer .serif{font-family:Georgia, 'Times New Roman', serif;font-size:17px;margin-bottom:8px;}
 footer p{opacity:.62;line-height:1.6;margin:0;}
@@ -44,125 +57,142 @@ footer p{opacity:.62;line-height:1.6;margin:0;}
 <div class="toolbar">
 <button class="btn btn-dark" id="shareBtn">Share →</button>
 <a class="btn btn-gold" href="https://psesh5.github.io/tonight-london/london-2026-09-23.ics" download>📥 Download .ics</a>
+<button class="btn btn-dark" id="tonightBtn" aria-pressed="false">⚡ Tonight</button>
 </div>
 <div class="picks" id="picksBar"><strong>My picks: <span id="pickCount">0</span></strong><br>
 <span style="font-size:13px;color:#6b6b6b;">Tap the boxes above, then send your picks — it shapes tomorrow's recommendations.</span><br><br>
 <button class="btn btn-dark" id="sendBtn">Send my picks →</button>
 </div>
 <main class="wrap">
+<div id="tonightWrap">
+<div class="tonight-head"><h2>⚡ Tonight</h2><p id="tonightCount"></p></div>
+<div id="tonightList"></div>
+<div id="tonightEmpty" style="display:none;">Nothing on in the next 5 hours — check back later.</div>
+</div>
 
 <section class="cat free">
 <h2>✨ Free tonight</h2>
 
-<article class="event" id="event-6" data-name="Amar Kanwar">
+<article class="event" id="event-6" data-idx="6" data-name="Amar Kanwar">
 <button class="toggle" data-idx="6" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.serpentinegalleries.org/about/press/amar-kanwar/">Amar Kanwar</a></h3>
 <div class="meta">Time TBA · Serpentine North, Kensington · Free</div>
 <p>Opening day of Amar Kanwar&#x27;s meditative moving-image exhibition at Serpentine North, including Such a Morning, The Peacock&#x27;s Graveyard and the world premiere of the seven-screen installation The Charcoal Man.</p>
 <a class="tickets" href="https://www.serpentinegalleries.org/about/press/amar-kanwar/">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-7" data-name="Creative Encounters: 2B or not 2B&#x27;s Life Drawing">
+<article class="event" id="event-7" data-idx="7" data-name="Creative Encounters: 2B or not 2B&#x27;s Life Drawing">
 <button class="toggle" data-idx="7" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.southbankcentre.co.uk/whats-on/creative-encounters-2b-or-not-2bs-life-drawing/">Creative Encounters: 2B or not 2B&#x27;s Life Drawing</a></h3>
 <div class="meta">18:00 · Southbank Centre, South Bank · Free</div>
 <p>Drop-in life drawing session run by the 2B or not 2B Collective, a POC-run drawing group spotlighting underrepresented tutors and models. All abilities welcome; charcoal and paper provided. No ticket required.</p>
 <a class="tickets" href="https://www.southbankcentre.co.uk/whats-on/creative-encounters-2b-or-not-2bs-life-drawing/">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-9" data-name="IFA London Regional Event">
+<article class="event" id="event-9" data-idx="9" data-name="IFA London Regional Event">
 <button class="toggle" data-idx="9" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.ifa.org.uk/cpd/in-person/regional-events/london/london-23-september">IFA London Regional Event</a></h3>
 <div class="meta">17:30 · Northeastern University London, Devon House, St Katharine Docks · Free</div>
 <p>Professional networking evening with talks on the UK economy from a Bank of England deputy agent and financial-planning strategy from Mattioli Woods. Registration has closed; a waiting list is available.</p>
 <a class="tickets" href="https://www.ifa.org.uk/cpd/in-person/regional-events/london/london-23-september">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-10" data-name="Free Cheese at The Prince of Wales">
+<article class="event" id="event-10" data-idx="10" data-name="Free Cheese at The Prince of Wales">
 <button class="toggle" data-idx="10" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.gold-flamingo.com/2026/09/15/whats-on-london-21-27-september-2026/">Free Cheese at The Prince of Wales</a></h3>
 <div class="meta">18:00 · The Prince of Wales, Highgate · Free</div>
 <p>Free cheese plates at the Highgate pub every Wednesday evening, 6-7pm, while stocks last.</p>
 <a class="tickets" href="https://www.gold-flamingo.com/2026/09/15/whats-on-london-21-27-september-2026/">Tickets &amp; info →</a>
+
 </div>
 </article>
 </section>
 <section class="cat">
 <h2>Music</h2>
 
-<article class="event" id="event-0" data-name="Richard Spaven">
+<article class="event" id="event-0" data-idx="0" data-name="Richard Spaven">
 <button class="toggle" data-idx="0" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.eventim.co.uk/artist/richard-spaven/richard-spaven-4131990/">Richard Spaven</a></h3>
 <div class="meta">19:00 · The Jazz Cafe, Camden</div>
 <p>Contemporary jazz drummer Richard Spaven plays the Jazz Cafe, blending jazz, electronic and experimental grooves.</p>
 <a class="tickets" href="https://www.eventim.co.uk/artist/richard-spaven/richard-spaven-4131990/">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-1" data-name="Ward Thomas: Celebrating 10 Years of Cartwheels">
+<article class="event" id="event-1" data-idx="1" data-name="Ward Thomas: Celebrating 10 Years of Cartwheels">
 <button class="toggle" data-idx="1" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://lwtheatres.co.uk/whats-on/ward-thomas/">Ward Thomas: Celebrating 10 Years of Cartwheels</a></h3>
 <div class="meta">19:30 · The London Palladium, Soho</div>
 <p>British country-pop duo Ward Thomas celebrate 10 years of their number-one album Cartwheels, performing it in full with a live band plus support from The Wandering Hearts.</p>
 <a class="tickets" href="https://lwtheatres.co.uk/whats-on/ward-thomas/">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-2" data-name="Royal Philharmonic Orchestra at 80">
+<article class="event" id="event-2" data-idx="2" data-name="Royal Philharmonic Orchestra at 80">
 <button class="toggle" data-idx="2" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.rpo.co.uk/tickets-memberships/event/2026/royal-philharmonic-orchestra-at-80">Royal Philharmonic Orchestra at 80</a></h3>
 <div class="meta">19:30 · Royal Albert Hall, South Kensington · From £24</div>
 <p>The Royal Philharmonic Orchestra marks 80 years with Wallen&#x27;s FLARE, Beethoven&#x27;s Triple Concerto and Strauss&#x27;s Ein Heldenleben.</p>
 <a class="tickets" href="https://www.rpo.co.uk/tickets-memberships/event/2026/royal-philharmonic-orchestra-at-80">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-3" data-name="System Olympia (Live)">
+<article class="event" id="event-3" data-idx="3" data-name="System Olympia (Live)">
 <button class="toggle" data-idx="3" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.jambase.com/show/system-olympia-shacklewell-arms-20260923">System Olympia (Live)</a></h3>
 <div class="meta">19:30 · The Shacklewell Arms, Dalston</div>
 <p>Live set from London-based electronic and disco artist System Olympia at the Shacklewell Arms.</p>
 <a class="tickets" href="https://www.jambase.com/show/system-olympia-shacklewell-arms-20260923">Tickets &amp; info →</a>
+
 </div>
 </article>
 </section>
 <section class="cat">
 <h2>Comedy</h2>
 
-<article class="event" id="event-4" data-name="Catherine Bohart: Borrowing Trouble">
+<article class="event" id="event-4" data-idx="4" data-name="Catherine Bohart: Borrowing Trouble">
 <button class="toggle" data-idx="4" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://sohotheatre.seetickets.com/artist/catherine-bohart/1790934">Catherine Bohart: Borrowing Trouble</a></h3>
 <div class="meta">19:15 · Soho Theatre, Soho · £15–£24</div>
 <p>Award-nominated comic Catherine Bohart brings a fresh hour of sharp stand-up about borrowing trouble - worrying about things that may never happen.</p>
 <a class="tickets" href="https://sohotheatre.seetickets.com/artist/catherine-bohart/1790934">Tickets &amp; info →</a>
+
 </div>
 </article>
-<article class="event" id="event-5" data-name="Knock2Bag Comedy Night with Josie Long">
+<article class="event" id="event-5" data-idx="5" data-name="Knock2Bag Comedy Night with Josie Long">
 <button class="toggle" data-idx="5" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.chortle.co.uk/venues/14/england_london_east/5894/moth_club">Knock2Bag Comedy Night with Josie Long</a></h3>
 <div class="meta">19:00 · MOTH Club, Hackney · £17.10</div>
 <p>Josie Long headlines Knock2Bag&#x27;s comedy night with Ed Aczel, Harriet Dyer, Joe Jacobs, Nicola Mantalios, Ray Badran and Sam Eley.</p>
 <a class="tickets" href="https://www.chortle.co.uk/venues/14/england_london_east/5894/moth_club">Tickets &amp; info →</a>
+
 </div>
 </article>
 </section>
 <section class="cat">
 <h2>Tech</h2>
 
-<article class="event" id="event-8" data-name="Using AI agents to grow your business">
+<article class="event" id="event-8" data-idx="8" data-name="Using AI agents to grow your business">
 <button class="toggle" data-idx="8" aria-label="Track this event" aria-pressed="false"><span class="box"></span></button>
 <div class="event-body">
 <h3><a href="https://www.eventbrite.co.uk/e/using-ai-agents-to-grow-your-business-tickets-1998491553033">Using AI agents to grow your business</a></h3>
 <div class="meta">12:00 · Online</div>
 <p>A 30-minute online lunchtime session from Enterprise Nation on using AI agents to grow your business.</p>
 <a class="tickets" href="https://www.eventbrite.co.uk/e/using-ai-agents-to-grow-your-business-tickets-1998491553033">Tickets &amp; info →</a>
+
 </div>
 </article>
 </section>
@@ -172,11 +202,15 @@ footer p{opacity:.62;line-height:1.6;margin:0;}
 <p>Your picks are tracked when you send them —<br>tomorrow's digest learns what you love.</p>
 </footer>
 <script>
+const TRAVEL_MINUTES = 30;  // default buffer before an event's start time
 const CITY = "london";
 const DATE = "2026-09-23";
 const NAMES = ["Richard Spaven", "Ward Thomas: Celebrating 10 Years of Cartwheels", "Royal Philharmonic Orchestra at 80", "System Olympia (Live)", "Catherine Bohart: Borrowing Trouble", "Knock2Bag Comedy Night with Josie Long", "Amar Kanwar", "Creative Encounters: 2B or not 2B's Life Drawing", "Using AI agents to grow your business", "IFA London Regional Event", "Free Cheese at The Prince of Wales"];
 const CATS = ["Music", "Music", "Music", "Music", "Comedy", "Comedy", "Arts & Play", "Arts & Play", "Tech", "Meetups & Mixers", "Food & Drink"];
 const FREE = [false, false, false, false, false, false, true, true, false, true, true];
+const TZ = "Europe/London";
+const STARTS = [null, null, null, null, null, null, null, null, null, null, null];   // minutes since midnight, or null
+const ENDS = [null, null, null, null, null, null, null, null, null, null, null];       // from end_time, or null (-> start + 2h)
 const KEY = "tonight-picks-" + CITY + "-" + DATE;
 let picks = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
 function render() {
@@ -188,9 +222,10 @@ function render() {
   localStorage.setItem(KEY, JSON.stringify([...picks]));
   // report taps to the backend when available (real tracking)
   if (window.__tonight_api) {
+    const USER_ID = localStorage.getItem("tonight-user-id") || null;
     fetch(window.__tonight_api + "/tap", {
       method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({city: CITY, date: DATE,
+      body: JSON.stringify({city: CITY, date: DATE, user_id: USER_ID,
         picks: [...picks].map(i => ({name: NAMES[+i], category: CATS[+i], free: FREE[+i]}))})
     }).catch(() => {});
   }
@@ -215,5 +250,146 @@ document.getElementById("sendBtn").addEventListener("click", () => {
   location.href = "mailto:pseshadri91@gmail.com?subject=" + subject + "&body=" + body;
 });
 render();
+function fmtTime(d) {
+  let h = d.getHours(); const m = d.getMinutes();
+  const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
+  return h + ":" + String(m).padStart(2, "0") + " " + ap;
+}
+// "leave by" hints from each event's local start time
+document.querySelectorAll(".event[data-start-local]").forEach(a => {
+  const start = new Date(a.dataset.startLocal);
+  if (isNaN(start)) return;
+  const leave = new Date(start.getTime() - TRAVEL_MINUTES * 60000);
+  const el = a.querySelector(".leave-by");
+  if (el) el.textContent = "leave by ~" + fmtTime(leave);
+});
+// per-event .ics download built client-side
+function icsEscape(s) {
+  return String(s).replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+                  .replace(/,/g, "\\,").replace(/\n/g, "\n");
+}
+function icsFold(line) {
+  let out = "";
+  while (line.length > 75) { out += line.slice(0, 75) + "\r\n "; line = line.slice(75); }
+  return out + line;
+}
+document.querySelectorAll(".ics-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const a = btn.closest(".event");
+    const d = a.dataset;
+    const stamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tonight//Event//EN",
+      "BEGIN:VEVENT",
+      "UID:" + CITY + "-" + DATE + "-" + btn.dataset.idx + "@tonight",
+      "DTSTAMP:" + stamp,
+      "DTSTART:" + d.calStart, "DTEND:" + d.calEnd,
+      "SUMMARY:" + icsEscape(d.name)];
+    if (d.loc) lines.push("LOCATION:" + icsEscape(d.loc));
+    if (d.url) {
+      lines.push("URL:" + d.url);
+      lines.push("DESCRIPTION:" + icsEscape("Tickets & info: " + d.url));
+    }
+    lines.push("END:VEVENT", "END:VCALENDAR");
+    const uri = "data:text/calendar;charset=utf-8," +
+                encodeURIComponent(lines.map(icsFold).join("\r\n"));
+    const link = document.createElement("a");
+    link.href = uri;
+    link.download = d.name.replace(/[^\w\- ]+/g, "").trim()
+                         .replace(/\s+/g, "-").slice(0, 60) + ".ics";
+    document.body.appendChild(link); link.click(); link.remove();
+  });
+});
+
+// ---------------- Tonight mode ----------------
+const TONIGHT_WINDOW = 300;  // upcoming: starts within the next 5h
+const NOW_GRACE = 120;       // "happening now": started within the last 2h
+function cityNowMinutes() {
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ, hour: "numeric", minute: "numeric", hour12: false
+    }).formatToParts(new Date());
+    let h = 0, m = 0;
+    for (const p of parts) {
+      if (p.type === "hour") h = (+p.value) % 24;
+      if (p.type === "minute") m = +p.value;
+    }
+    return h * 60 + m;
+  } catch (e) {
+    const d = new Date();
+    return d.getHours() * 60 + d.getMinutes();
+  }
+}
+let tonightOn = false;
+const homeSpot = new Map();  // idx -> original {parent, next} for restore
+function addBadge(art, cls, text) {
+  art.querySelectorAll(".badge").forEach(b => b.remove());
+  const b = document.createElement("span");
+  b.className = "badge " + cls;
+  b.textContent = text;
+  art.querySelector(".event-body").prepend(b);
+}
+function setTonight(on) {
+  tonightOn = on;
+  const btn = document.getElementById("tonightBtn");
+  btn.classList.toggle("btn-active", on);
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  const wrap = document.getElementById("tonightWrap");
+  const list = document.getElementById("tonightList");
+  const empty = document.getElementById("tonightEmpty");
+  const count = document.getElementById("tonightCount");
+  if (!on) {
+    homeSpot.forEach((spot, i) => {
+      const art = document.getElementById("event-" + i);
+      if (art) {
+        art.querySelectorAll(".badge").forEach(b => b.remove());
+        spot.parent.insertBefore(art, spot.next);
+      }
+    });
+    homeSpot.clear();
+    wrap.style.display = "none";
+    document.querySelectorAll("section.cat").forEach(s => { s.style.display = ""; });
+    return;
+  }
+  const now = cityNowMinutes();
+  const items = [];
+  document.querySelectorAll("article.event").forEach(art => {
+    const i = +art.dataset.idx;
+    if (!homeSpot.has(i)) homeSpot.set(i, {parent: art.parentNode, next: art.nextSibling});
+    const s = STARTS[i];
+    let status = "tba", rank = 3;
+    if (s == null) { status = "tba"; rank = 3; }
+    else {
+      const e = ENDS[i] != null ? ENDS[i] : s + NOW_GRACE;
+      if (now >= s && now <= e) { status = "now"; rank = 0; }
+      else if (s > now && s - now <= TONIGHT_WINDOW) { status = "soon"; rank = FREE[i] ? 1 : 2; }
+      else { status = "past"; rank = 4; }
+    }
+    items.push({art: art, i: i, s: s, status: status, rank: rank, free: FREE[i]});
+  });
+  items.sort((a, b) => (a.rank - b.rank) || ((a.s == null ? 1440 : a.s) - (b.s == null ? 1440 : b.s)));
+  list.innerHTML = "";
+  let live = 0, tbaHeader = false;
+  items.forEach(o => {
+    if (o.status === "past") return;  // already over: not tonight
+    if (o.status === "tba" && !tbaHeader) {
+      tbaHeader = true;
+      const div = document.createElement("div");
+      div.className = "tba-div";
+      div.textContent = "Times TBA";
+      list.appendChild(div);
+    }
+    if (o.status === "now") addBadge(o.art, "now", "● Happening now");
+    else if (o.free) addBadge(o.art, "free", "Free");
+    else o.art.querySelectorAll(".badge").forEach(b => b.remove());
+    list.appendChild(o.art);
+    if (o.status !== "tba") live++;
+  });
+  document.querySelectorAll("section.cat").forEach(s => { s.style.display = "none"; });
+  wrap.style.display = "block";
+  empty.style.display = live ? "none" : "block";
+  count.textContent = live ? live + (live === 1 ? " thing" : " things") + " on now or starting soon" : "";
+  wrap.scrollIntoView({behavior: "smooth", block: "start"});
+}
+document.getElementById("tonightBtn").addEventListener("click", () => setTonight(!tonightOn));
 </script>
-</body></html>
+<script>window.__tonight_api="https://20357f0b1dcdf77b-104-28-233-73.serveousercontent.com/api";</script></body></html>
